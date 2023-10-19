@@ -1,0 +1,22 @@
+header.active {
+  
+  background-color: white;
+}
+header.active div.wrap div.gnb ul.gnb-dep1-wrap li.gnb-dep1 a.gnb-dep1-link {
+  color: black;
+}
+header.active div.wrap div.gnb ul.gnb-dep1-wrap li.gnb-dep1 a.gnb-dep1-link:hover {
+  color: red;
+}
+header.active div.wrap div.gnb-util ul.util-wrap li.util a.util-link {
+  color: black;
+}
+header.active div.wrap div.gnb-util ul.util-wrap li.util a.util-link:hover {
+  color: red;
+}
+header.active div.wrap div.gnb-util ul.util-wrap li.util a.util-link p {
+  color: black;
+}
+header.active div.wrap div.gnb-util ul.util-wrap li.util a.util-link svg {
+  fill: black;
+}

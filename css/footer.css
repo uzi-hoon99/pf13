@@ -1,0 +1,51 @@
+section#footer {
+  
+  background-color: lightgray;
+}
+section#footer div.wrap {
+  
+  width: 1460px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 150px 0;
+}
+section#footer div.wrap h1 {
+  
+}
+section#footer div.wrap h1 a {
+  
+  display: block;
+}
+section#footer div.wrap h1 a img {
+  
+}
+section#footer div.wrap div.footer-text {
+  
+  line-height: 2;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+section#footer div.wrap div.footer-text p.info {
+  
+}
+section#footer div.wrap div.footer-text p.copy {
+  
+  color: gray;
+}
+section#footer div.wrap ul.footer-sns-list {
+  
+  display: flex;
+  gap: 20px;
+}
+section#footer div.wrap ul.footer-sns-list li.footer-sns {
+  
+}
+section#footer div.wrap ul.footer-sns-list li.footer-sns a.footer-sns-link {
+  
+}
+section#footer div.wrap ul.footer-sns-list li.footer-sns a.footer-sns-link img {
+  
+}

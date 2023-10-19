@@ -1,0 +1,20 @@
+section#main-title {
+  
+}
+section#main-title ul.main-img-list {
+  
+}
+section#main-title ul.main-img-list li.main-img {
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+}
+section#main-title ul.main-img-list li.main-img1 {
+  background-image: url(../img/bg/bg1.jpg);
+}
+section#main-title ul.main-img-list li.main-img2 {
+  background-image: url(../img/bg/bg2.jpg);
+}
+section#main-title ul.main-img-list li.main-img3 {
+  background-image: url(../img/bg/bg3.jpg);
+}

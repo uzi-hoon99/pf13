@@ -1,0 +1,70 @@
+section#about {
+  
+  height: 100vh;
+}
+section#about div.wrap {
+  
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+}
+section#about div.wrap div.about-img {
+  
+  margin-left: -60px;
+}
+section#about div.wrap div.about-img img {
+  
+}
+section#about div.wrap div.about-text {
+  
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: start;
+}
+section#about div.wrap div.about-text h2 {
+  
+  font-size: 20px;
+  color: red;
+  font-weight: 700;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+section#about div.wrap div.about-text h2::before {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 2px;
+  background-color: red;
+  left: -200px;
+}
+section#about div.wrap div.about-text h3 {
+  
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+section#about div.wrap div.about-text p {
+  
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: gray;
+}
+section#about div.wrap div.about-text a {
+  
+  border: 1px solid;
+  padding: 15px 35px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.25s;
+}
+section#about div.wrap div.about-text a:hover {
+  color: white;
+  background-color: red;
+  border: 1px solid red;
+}

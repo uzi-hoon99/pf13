@@ -1,0 +1,95 @@
+section#brand {
+  
+}
+section#brand ul.main-brand-list {
+  
+}
+section#brand ul.main-brand-list li.main-brand {
+  
+}
+section#brand ul.main-brand-list li.main-brand a.main-brand-link {
+  
+  height: 100vh;
+  display: block;
+}
+section#brand ul.main-brand-list li.main-brand1 {
+  background-image: url(../img/mainbrand/1.png);
+}
+section#brand ul.main-brand-list li.main-brand1:hover {
+  background-image: url(../img/mainbrand/1-1.png);
+}
+section#brand ul.main-brand-list li.main-brand2 {
+  background-image: url(../img/mainbrand/2.jpg);
+}
+section#brand ul.main-brand-list li.main-brand2:hover {
+  background-image: url(../img/mainbrand/2-1.jpg);
+}
+section#brand ul.main-brand-list li.main-brand3 {
+  background-image: url(../img/mainbrand/3.png);
+}
+section#brand ul.main-brand-list li.main-brand3:hover {
+  background-image: url(../img/mainbrand/3-1.png);
+}
+section#brand ul.main-brand-list li.main-brand4 {
+  background-image: url(../img/mainbrand/4.png);
+}
+section#brand ul.main-brand-list li.main-brand4:hover {
+  background-image: url(../img/mainbrand/4-1.png);
+}
+section#brand ul.main-brand-list li.main-brand5 {
+  background-image: url(../img/mainbrand/5.png);
+}
+section#brand ul.main-brand-list li.main-brand5:hover {
+  background-image: url(../img/mainbrand/5-1.png);
+}
+section#brand ul.main-brand-list li.main-brand6 {
+  background-image: url(../img/mainbrand/6.png);
+}
+section#brand ul.main-brand-list li.main-brand6:hover {
+  background-image: url(../img/mainbrand/6-1.png);
+}
+section#brand ul.main-brand-list li.main-brand7 {
+  background-image: url(../img/mainbrand/7.png);
+}
+section#brand ul.main-brand-list li.main-brand7:hover {
+  background-image: url(../img/mainbrand/7-1.png);
+}
+section#brand ul.main-brand-list li.main-brand8 {
+  background-image: url(../img/mainbrand/8.png);
+}
+section#brand ul.main-brand-list li.main-brand8:hover {
+  background-image: url(../img/mainbrand/8-1.png);
+}
+section#brand ul.main-brand-list li.main-brand9 {
+  background-image: url(../img/mainbrand/9.png);
+}
+section#brand ul.main-brand-list li.main-brand9:hover {
+  background-image: url(../img/mainbrand/9-1.png);
+}
+section#brand ul.main-brand-list li.main-brand10 {
+  background-image: url(../img/mainbrand/10.png);
+}
+section#brand ul.main-brand-list li.main-brand10:hover {
+  background-image: url(../img/mainbrand/10-1.png);
+}
+
+
+section#brand .slick-prev {
+  left: 50px;
+  background-image: url(../img/icon/chevron-back-sharp.svg);
+}
+section#brand .slick-next {
+  right: 50px;
+  background-image: url(../img/icon/chevron-forward-sharp.svg);
+}
+section#brand .slick-prev, section#brand .slick-next {
+  width: 70px;
+  height: 120px;
+  z-index: 10;
+  background-size: cover;
+  background-position: center;
+  filter: drop-shadow(5px 5px 5px #000);
+}
+section#brand .slick-prev::before, section#brand .slick-next::before {
+  display: none;
+}

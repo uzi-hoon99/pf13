@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(UZI)ABKO</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/headerActive.css">
+    <link rel="stylesheet" href="css/mainTitle.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/brand.css">
+    <link rel="stylesheet" href="css/irData.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- 제이쿼리 -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            var headerOffset = $("header").offset();
+            var sidemenutop = headerOffset.top + $("header").outerHeight();
+            var ws;
+            $(window).scroll(function(){
+                ws=$(window).scrollTop()
+                if(ws>sidemenutop){
+                    $("header").addClass("active");
+                    $("a.logo img:nth-child(1)").addClass("hide");
+                    $("a.logo img:nth-child(2)").removeClass("hide");
+                }
+                if(ws<sidemenutop){
+                    $("header").removeClass("active");
+                    $("a.logo img:nth-child(2)").addClass("hide");
+                    $("a.logo img:nth-child(1)").removeClass("hide");
+                }
+            });
+
+            $(".gnb-inner").hide();
+            $(".gnb-dep1").hover(
+                function(){
+                    $(this).find(".gnb-inner").hide().slideDown(100);
+                },
+                function(){
+                    $(this).find(".gnb-inner").hide().slideUp(100);
+                }
+            );
+            
+            var a=0;
+            $(".abko-title").siblings().hide();
+            $(".domestic ul.gnb-dep2-wrap2 li.gnb-dep2").mouseenter(function(){
+                a=$(this).index();
+                $("ul.gnb-brand-title-wrap li:eq("+a+")").show();
+                $("ul.gnb-brand-title-wrap li:eq("+a+")").siblings().hide();
+            });
+
+            $(".global ul.gnb-dep2-wrap2 li.gnb-dep2").mouseenter(function(){
+                $(".abko-n-core-title").show();
+                $(".abko-n-core-title").siblings().hide();
+            });
+        });
+    </script>
+
+    <!-- 슬릭 -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.main-img-list').slick({
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2500,
+                dots: false,
+                arrows: false
+            });
+            $('.main-brand-list').slick({
+                infinite: true,
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2500,
+                dots: false
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"/>
+    <script type="text/javascript">
+        window.onload = function () {
+            var elm = ".box";
+            $(elm).each(function (index) {
+                // 개별적으로 Wheel 이벤트 적용
+                $(this).on("mousewheel DOMMouseScroll", function (e) {
+                    e.preventDefault();
+                    var delta = 0;
+                    if (!event) event = window.event;
+                    if (event.wheelDelta) {
+                        delta = event.wheelDelta / 120;
+                        if (window.opera) delta = -delta;
+                    } 
+                    else if (event.detail)
+                        delta = -event.detail / 3;
+                    var moveTop = $(window).scrollTop();
+                    var elmSelecter = $(elm).eq(index);
+                    // 마우스휠을 위에서 아래로
+                    if (delta < 0) {
+                        if ($(elmSelecter).next() != undefined) {
+                            try{
+                                moveTop = $(elmSelecter).next().offset().top;
+                            }catch(e){}
+                        }
+                    // 마우스휠을 아래에서 위로
+                    } else {
+                        if ($(elmSelecter).prev() != undefined) {
+                            try{
+                                moveTop = $(elmSelecter).prev().offset().top;
+                            }catch(e){}
+                        }
+                    }
+                    
+                    // 화면 이동 0.8초(800)
+                    $("html,body").stop().animate({
+                        scrollTop: moveTop + 'px'
+                    }, {
+                        duration: 800, complete: function () {
+                        }
+                    });
+                });
+            });
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <div class="wrap">
+            <h1>
+                <a href="#" class="logo">
+                    <img class="" src="img/gnb/logo.png" alt="logo">
+                    <img class="hide" src="img/gnb/logo_red.png" alt="logo_red">
+                </a>
+            </h1>
+            <div class="gnb">
+                <ul class="gnb-dep1-wrap">
+                    <li class="gnb-dep1">
+                        <a href="" class="gnb-dep1-link">회사소개</a>
+                        <div class="gnb-inner">
+                            <div class="gnb-inner-wrap">
+                                <div class="gnb-title">
+                                    <h2>회사소개</h2>
+                                    <p>매일이 더 즐겁고 편리하게 일상의 행복을 디자인하다.</p>
+                                </div>
+                                <ul class="gnb-dep2-wrap gnb-dep2-wrap1">
+                                    <li class="gnb-dep2">
+                                        <a href="" class="gnb-dep2-link">ABKO</a>
+                                    </li>
+                                    <li class="gnb-dep2">
+                                        <a href="" class="gnb-dep2-link">CI.BI</a>
+                                    </li>
+                                    <li class="gnb-dep2">
+                                        <a href="" class="gnb-dep2-link">사업장 안내</a>
+                                    </li>
+                                    <li class="gnb-dep2">
+                                        <a href="" class="gnb-dep2-link">CEO 인사말</a>
+                                    </li>
+                                    <li class="gnb-dep2">
+                                        <a href="" class="gnb-dep2-link">연혁</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gnb-dep1">
+                        <a href="" class="gnb-dep1-link">브랜드</a>
+                        <div class="gnb-inner">
+                            <div class="gnb-inner-wrap">
+                                <div class="gnb-title gnb-brand-title">
+                                    <ul class="gnb-brand-title-wrap">
+                                        <li class="abko-title">
+                                            <h2>ABKO</h2>
+                                            <p>ABKO는 한국 대표 브랜드의 명예를 걸고 아름다운 디자인과 훌륭한 품질의<br>제품을 소비자들에게 공급하고자, 제품의 기획 / 개발 단계에서부터<br>제품을 출시하는 그 순간까지 항상 최선을 다하고 있습니다.</p>
+                                        </li>
+                                        <li class="abko-life-title">
+                                            <h2>ABKO Life</h2>
+                                            <p>매일 좋은 날을 만나고 싶은 당신을 위한 단 하나의 브랜드.<br>토탈 리빙 전문 브랜드 '앱코라이프'와 함께 하세요.</p>
+                                        </li>
+                                        <li class="hacker-title">
+                                            <h2>HACKER</h2>
+                                            <p>게이밍 기어 전문 브랜드 HACKER는 강력한 성능과 세련된 디자인,<br>합리적인 가격을 무기로 당신의 승리를 책임집니다.</p>
+                                        </li>
+                                        <li class="ohella-title">
+                                            <h2>OHELLA</h2>
+                                            <p>오엘라는 전자 제품 전문가들이 오랜 기간 기획, 연구 개발, 테스트 등의<br>과정을 거쳐 여러분의 일상 생활에 필요한 제품을 선보이는 브랜드입니다.</p>
+                                        </li>
+                                        <li class="beatonic-title">
+                                            <h2>BEATONIC</h2>
+                                            <p>비토닉은 다년간 헤드셋과 스피커 등을 출시한 앱코에서 론칭한<br>음향기기 전문 브랜드입니다. 수많은 노하우를 통해 구현한 풍부한<br>사운드와 독보적인 퀄리티를 이제 일상에서 즐기세요.</p>
+                                        </li>
+                                        <li class="cox-title">
+                                            <h2>COX</h2>
+                                            <p>0.1초가 승부를 가르는 게임에서 COX의 마우스는 언제나 한발 더 빠르게 움직입니다.<br>단 한 순간의 오차도 없이 게임을 즐기실 수 있습니다.</p>
+                                        </li>
+                                        <li class="ncore-title">
+                                            <h2>NCORE</h2>
+                                            <p>Ncore는 자타 공인의 대한민국 No.1 케이스 브랜드로서<br>국민 케이스로 불리는 수 많은 인기 케이스들을 선보이고 있습니다.</p>
+                                        </li>
+                                        <li class="suit-master-title">
+                                            <h2>SUIT MASTER</h2>
+                                            <p>견고함을 가진 고품격 S.I 솔루션의 대명사 SUITMASTER!<br>수트 마스터를 통해 고품격 실용주의를 추구하는<br>프리미엄급 PC 주변기기를 만날 수 있습니다.</p>
+                                        </li>
+                                        <li class="pad-bank-title">
+                                            <h2>PAD BANK</h2>
+                                            <p>학교, 직장 내 태블릿 관리부터 재고확인, 통계, 보고서는 기본, 향후<br>태블릿 바이러스 치료까지 디지털 교과서를 위한 지능형 기능의<br>충전 보관함 Padbank와 함께하세요.</p>
+                                        </li>
+                                        <li class="abko-n-core-title">
+                                            <h2>ABKO N CORE</h2>
+                                            <p>대한민국 No.1 게이밍 기어들을 글로벌 무대에서 선보이는 브랜드입니다.<br>최고의 품질과 합리적인 가격으로 글로벌 브랜드로 성장하고 있습니다.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="brand-cont">
+                                    <div class="brand-wrap domestic">
+                                        <h3>국내 브랜드</h3>
+                                        <ul class="gnb-dep2-wrap gnb-dep2-wrap2">
+                                            <li class="gnb-dep2">
+                                                <a href="" class="gnb-dep2-link">
+                                                    <img src="img/gnb/gnb_brand_01.png" alt="gnb_brand_01">
+                                                </a>
+                                            </li>
+                                            <li class="gnb-dep2">
+                                                <a href="" class="gnb-dep2-link">
+                                                    <img src="img/gnb/gnb_brand_02.png" alt="gnb_brand_02">
+                                                </a>
+                                            </li>
+                                            <li class="gnb-dep2">
+                                                <a href="" class="gnb-dep2-link">
+                                                    <img src="img/gnb/gnb_brand_03.png" alt="gnb_brand_03">
+                                                </a>
+                                            </li>
+                                            <li class="gnb-dep2">
+                                                <a href="" class="gnb-dep2-link">
+                                                    <img src="img/gnb/gnb_brand_04.png" alt="gnb_brand_04">
+                                                </a>
+                                            </li>
+                                            <li class="gnb-dep2">
+                                                <a href="" class="gnb-dep2-link">
+                                                    <img src="img/gnb/gnb_brand_05.png" alt="gnb_brand_05">
+                                                </a>
+                                            </li>
+                                            <li class="gnb-dep2">
+                                                <a href="" class="gnb-dep2-link">
+                                                    <img src="img/gnb/gnb_brand_06.png" alt="gnb_brand_06">
+                                                </a>
+                                            </li>
+                                            <li class="gnb-dep2">
+                                                <a href="" class="gnb-dep2-link">
+                                                    <img src="img/gnb/gnb_brand_07.png" alt="gnb_brand_07">
+                                                </a>
+                                            </li>
+                                            <li class="gnb-dep2">
+                                                <a href="" class="gnb-dep2-link">
+                                                    <img src="img/gnb/gnb_brand_08.png" alt="gnb_brand_08">
+                                                </a>
+                                            </li>
+                                            <li class="gnb-dep2">
+                                                <a href="" class="gnb-dep2-link">
+                                                    <img src="img/gnb/gnb_brand_09.png" alt="gnb_brand_09">
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="brand-wrap global">
+                                        <h3>글로벌 브랜드</h3>
+                                        <ul class="gnb-dep2-wrap gnb-dep2-wrap2">
+                                            <li class="gnb-dep2">
+                                                <a href="" class="gnb-dep2-link">
+                                                    <img src="img/gnb/gnb_brand_10.png" alt="gnb_brand_10">
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gnb-dep1">
+                        <a href="" class="gnb-dep1-link">공지사항</a>
+                        <div class="gnb-inner">
+                            <div class="gnb-inner-wrap">
+                                <div class="gnb-title">
+                                    <h2>공지사항</h2>
+                                    <p>주식회사 앱코의 공지사항 및 새로운 소식을<br>직접 확인하실 수 있습니다.</p>
+                                </div>
+                                <ul class="gnb-dep2-wrap gnb-dep2-wrap3">
+                                    <li class="gnb-dep2">
+                                        <a href="" class="gnb-dep2-link">공지사항</a>
+                                    </li>
+                                    <li class="gnb-dep2">
+                                        <a href="" class="gnb-dep2-link">뉴스</a>
+                                    </li>
+                                    <li class="gnb-dep2">
+                                        <a href="" class="gnb-dep2-link">이벤트</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gnb-dep1">
+                        <a href="" class="gnb-dep1-link">고객지원</a>
+                        <div class="gnb-inner">
+                            <div class="gnb-inner-wrap">
+                                <div class="gnb-title">
+                                    <h2>고객지원</h2>
+                                    <p>항상 고객님을 생각하는 앱코의 고객 지원 센터입니다.<br>모든 문의사항은 언제든지 연락주시기 바랍니다.</p>
+                                </div>
+                                <ul class="gnb-dep2-wrap gnb-dep2-wrap4">
+                                    <li class="gnb-dep2">
+                                        <a href="" class="gnb-dep2-link">자료실 및 다운로드</a>
+                                    </li>
+                                    <li class="gnb-dep2">
+                                        <a href="" class="gnb-dep2-link">1:1 문의</a>
+                                    </li>
+                                    <li class="gnb-dep2">
+                                        <a href="" class="gnb-dep2-link">AS 접수 및 조회</a>
+                                    </li>
+                                    <li class="gnb-dep2">
+                                        <a href="" class="gnb-dep2-link">자주 묻는 질문</a>
+                                    </li>
+                                    <li class="gnb-dep2">
+                                        <a href="" class="gnb-dep2-link">대리점 정보</a>
+                                    </li>
+                                    <li class="gnb-dep2">
+                                        <a href="" class="gnb-dep2-link">Shop</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="gnb-dep1">
+                        <a href="" class="gnb-dep1-link">투자정보</a>
+                        <div class="gnb-inner">
+                            <div class="gnb-inner-wrap">
+                                <div class="gnb-title">
+                                    <h2>투자정보</h2>
+                                    <p>주식회사 앱코는 투명한 경영을 통해<br>믿음을 드리겠습니다.</p>
+                                </div>
+                                <ul class="gnb-dep2-wrap">
+                                    <li class="gnb-dep2">
+                                        <a href="" class="gnb-dep2-link">재무 정보</a>
+                                    </li>
+                                    <li class="gnb-dep2">
+                                        <a href="" class="gnb-dep2-link">주가 정보</a>
+                                    </li>
+                                    <li class="gnb-dep2">
+                                        <a href="" class="gnb-dep2-link">공시 / 공고</a>
+                                    </li>
+                                    <li class="gnb-dep2">
+                                        <a href="" class="gnb-dep2-link">내부정보관리규정</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="gnb-util">
+                <ul class="util-wrap">
+                    <li class="util">
+                        <a href="" class="util-link">
+                            <img src="img/gnb/padBank.png" alt="padbank">
+                            <p>(나라장터)</p>
+                        </a>
+                    </li>
+                    <li class="util">
+                        <a href="" class="util-link">Global</a>
+                    </li>
+                    <li class="util">
+                        <a href="" class="util-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                                <path d="M456.69 421.39L362.6 327.3a173.81 173.81 0 0034.84-104.58C397.44 126.38 319.06 48 222.72 48S48 126.38 48 222.72s78.38 174.72 174.72 174.72A173.81 173.81 0 00327.3 362.6l94.09 94.09a25 25 0 0035.3-35.3zM97.92 222.72a124.8 124.8 0 11124.8 124.8 124.95 124.95 0 01-124.8-124.8z"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="main-title" class="box">
+            <ul class="main-img-list">
+                <li class="main-img main-img1">
+                </li>
+                <li class="main-img main-img2">
+                </li>
+                <li class="main-img main-img3">
+                </li>
+            </ul>
+        </section>
+        <section id="about" class="box">
+            <div class="wrap">
+                <div class="about-img">
+                    <img src="img/about.png" alt="about">
+                </div>
+                <div class="about-text">
+                    <h2>ABOUT ABKO</h2>
+                    <h3>매일이 더 즐겁고 편리하게,<br>일상의 행복을 디자인하다.</h3>
+                    <p>주식회사 앱코는 즐거움과 편안함을 동시에 추구합니다. 일상을 더 풍요롭게<br>만드는 오락과, 매일이 더 편리해지는 제품으로 고객에게 행복을 선사합니다.</p>
+                    <a href="">MORE VIEW</a>
+                </div>
+            </div>
+        </section>
+        <section id="brand" class="box">
+            <ul class="main-brand-list">
+                <li class="main-brand main-brand1">
+                    <a href="" class="main-brand-link"></a>
+                </li>
+                <li class="main-brand main-brand2">
+                    <a href="" class="main-brand-link"></a>
+                </li>
+                <li class="main-brand main-brand3">
+                    <a href="" class="main-brand-link"></a>
+                </li>
+                <li class="main-brand main-brand4">
+                    <a href="" class="main-brand-link"></a>
+                </li>
+                <li class="main-brand main-brand5">
+                    <a href="" class="main-brand-link"></a>
+                </li>
+                <li class="main-brand main-brand6">
+                    <a href="" class="main-brand-link"></a>
+                </li>
+                <li class="main-brand main-brand7">
+                    <a href="" class="main-brand-link"></a>
+                </li>
+                <li class="main-brand main-brand8">
+                    <a href="" class="main-brand-link"></a>
+                </li>
+                <li class="main-brand main-brand9">
+                    <a href="" class="main-brand-link"></a>
+                </li>
+                <li class="main-brand main-brand10">
+                    <a href="" class="main-brand-link"></a>
+                </li>
+            </ul>
+        </section>
+        <section id="ir-data" class="box">
+            <div class="wrap">
+                <div class="ir-data-title">
+                    <h2>IR DATA</h2>
+                    <h3>주식회사 앱코는 투명한 경영을 통해 믿음을 드리겠습니다.</h3>
+                </div>
+                <div class="ir-data-bg">
+                    <div class="ir-data-info-wrap">
+                        <ul>
+                            <li>
+                                <a href="" class="ir-link">
+                                    <p class="data-date"><span>9</span>2021.08</p>
+                                    <p class="data-title">임시주주총회를 위한 주주확정 기준일 공고</p>
+                                    <p class="cir">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                                            <path d="M64 256c0 106 86 192 192 192s192-86 192-192S362 64 256 64 64 150 64 256z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="16"/>
+                                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M216 352l96-96-96-96"/>
+                                        </svg>
+                                    </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="ir-link">
+                                    <p class="data-date"><span>25</span>2021.03</p>
+                                    <p class="data-title">2020년 재무상태표(대차대조표) 공고</p>
+                                    <p class="cir">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                                            <path d="M64 256c0 106 86 192 192 192s192-86 192-192S362 64 256 64 64 150 64 256z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="16"/>
+                                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M216 352l96-96-96-96"/>
+                                        </svg>
+                                    </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="ir-link">
+                                    <p class="data-date"><span>23</span>2020.11</p>
+                                    <p class="data-title">㈜앱코 코스닥 시장 주식공모 청약 안내</p>
+                                    <p class="cir">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                                            <path d="M64 256c0 106 86 192 192 192s192-86 192-192S362 64 256 64 64 150 64 256z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="16"/>
+                                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M216 352l96-96-96-96"/>
+                                        </svg>
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                        <a href="" class="view">MORE VIEW</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="footer" class="box">
+            <div class="wrap">
+                <h1>
+                    <a href="">
+                        <img src="img/footer/footer_logo.png" alt="footer_logo">
+                    </a>
+                </h1>
+                <div class="footer-text">
+                    <p class="info">상호 : 주식회사 앱코 │ 대표이사 : 오광근 │ 개인정보관리책임자 : 이경미 │ 관리자 메일 : webmaster2020@abko.co.kr (제휴, 상담문의 불가)<br>통신판매신고 : 2020-서울강서-0310 │ 본사 : 서울특별시 강서구 마곡중앙1로 20, 7층 (마곡동) │ 사업자 등록번호 : 106-86-01413<br>서비스센터 : 1644-0844 │ 업무시간 : 10:00~17:00 │ 점심시간 : 12:00~13:00 (공휴일 및 토/일 휴무)</p>
+                    <p class="copy">Copyright ⓒ 2020 ABKO Co., Ltd. All Rights Reserved.</p>
+                </div>
+                <ul class="footer-sns-list">
+                    <li class="footer-sns">
+                        <a href="" class="footer-sns-link">
+                            <img src="img/footer/sns1.png" alt="sns1">
+                        </a>
+                    </li>
+                    <li class="footer-sns">
+                        <a href="" class="footer-sns-link">
+                            <img src="img/footer/sns2.png" alt="sns2">
+                        </a>
+                    </li>
+                    <li class="footer-sns">
+                        <a href="" class="footer-sns-link">
+                            <img src="img/footer/sns3.png" alt="sns3">
+                        </a>
+                    </li>
+                    <li class="footer-sns">
+                        <a href="" class="footer-sns-link">
+                            <img src="img/footer/sns4.png" alt="sns4">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="portfolio">
+                <p>본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
